@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sonu Sinha | Data Analyst Portfolio</title>
+<meta name="description" content="Data Analyst portfolio: sales, supply chain and operations analytics with SQL, Power BI, Excel, Python and DAX.">
+<style>
+  :root{
+    --bg:#0b1220; --panel:#0f172a; --line:#233149; --txt:#f1f5f9; --muted:#94a3b8;
+    --acc:#38bdf8; --acc2:#2dd4bf; --ok:#15803d; --prog:#1d4ed8; --plan:#64748b;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f8fafc; --panel:#ffffff; --line:#e2e8f0; --txt:#0f172a; --muted:#475569; --acc:#0369a1; --acc2:#0f766e; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+  a{color:var(--acc);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
+  nav b{font-size:16px}
+  nav .links a{margin-left:22px;font-size:14px;color:var(--muted)}
+  nav .links a:hover{color:var(--txt);text-decoration:none}
+  .hero{padding:80px 0 56px}
+  .hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .eyebrow{font-family:Consolas,'Courier New',monospace;font-size:12px;letter-spacing:2px;color:var(--acc);text-transform:uppercase}
+  h1{font-size:48px;line-height:1.1;margin:10px 0 8px}
+  .role{font-size:21px;color:var(--acc);font-weight:600}
+  .lead{color:var(--muted);margin:16px 0 26px;max-width:480px}
+  .btn{display:inline-block;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;margin-right:10px;border:1px solid var(--line)}
+  .btn.primary{background:var(--acc);color:#04111d;border-color:var(--acc)}
+  .btn:hover{text-decoration:none;opacity:.9}
+  .chart{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .chart small{font-family:Consolas,monospace;font-size:11px;letter-spacing:1.5px;color:var(--muted)}
+  .chart svg{width:100%;height:auto;display:block;margin-top:8px}
+  .draw{stroke-dasharray:100;stroke-dashoffset:100;animation:draw 3s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  section{padding:56px 0;border-top:1px solid var(--line)}
+  h2{font-size:26px;margin-bottom:6px}
+  .sub{color:var(--muted);margin-bottom:28px}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .tile{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:10px;padding:16px 18px}
+  .tile:nth-child(2){border-top-color:var(--acc2)} .tile:nth-child(3){border-top-color:#a78bfa} .tile:nth-child(4){border-top-color:#fbbf24}
+  .tile small{font-family:Consolas,monospace;font-size:10.5px;letter-spacing:1.5px;color:var(--muted)}
+  .tile b{display:block;font-size:18px;margin-top:6px}
+  .tile span{font-size:13px;color:var(--muted)}
+  .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .skill{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+  .skill h3{font-size:15px;margin-bottom:10px}
+  .chip{display:inline-block;font-family:Consolas,monospace;font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:3px 4px 3px 0;color:var(--txt)}
+  .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column}
+  .card h3{font-size:17px;margin:10px 0 6px}
+  .card p{color:var(--muted);font-size:14px;flex:1}
+  .card .tools{margin:14px 0 10px}
+  .status{font-size:11px;font-weight:700;letter-spacing:.5px;padding:3px 9px;border-radius:4px;color:#fff;align-self:flex-start}
+  .s-done{background:var(--ok)} .s-progress{background:var(--prog)} .s-planned{background:var(--plan)}
+  .card .go{font-size:14px;font-weight:600}
+  .steps{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 12px}
+  .step small{font-family:Consolas,monospace;color:var(--acc);font-size:11px}
+  .step b{display:block;font-size:15px;margin:2px 0}
+  .step span{font-size:12px;color:var(--muted)}
+  .contact a.btn{margin-bottom:8px}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px;text-align:center}
+  @media(max-width:860px){
+    .hero .grid,.skills{grid-template-columns:1fr}
+    .tiles{grid-template-columns:repeat(2,1fr)} .projects{grid-template-columns:1fr} .steps{grid-template-columns:repeat(2,1fr)}
+    h1{font-size:38px} nav .links a{margin-left:14px}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <b>Sonu Sinha</b>
+  <div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap grid">
+  <div>
+    <div class="eyebrow">Data Analyst</div>
+    <h1>Sonu Sinha</h1>
+    <div class="role">Sales · Supply Chain · Operations Analytics</div>
+    <p class="lead">I turn raw operational data into decisions: clean data, clear dashboards and actionable insight, using SQL, Power BI, Excel, Python and DAX.</p>
+    <a class="btn primary" href="#projects">View projects</a>
+    <a class="btn" href="#contact">Get in touch</a>
+  </div>
+  <div class="chart">
+    <small>PERFORMANCE TREND</small>
+    <svg viewBox="0 0 320 160" aria-hidden="true">
+      <g stroke="currentColor" style="color:var(--line)" stroke-width="1">
+        <line x1="0" y1="20" x2="320" y2="20"/><line x1="0" y1="60" x2="320" y2="60"/>
+        <line x1="0" y1="100" x2="320" y2="100"/><line x1="0" y1="140" x2="320" y2="140"/>
+      </g>
+      <path d="M0 110 L29 95 L58 102 L87 80 L116 70 L145 76 L174 58 L203 48 L232 54 L261 36 L290 26 L320 14 L320 140 L0 140Z" fill="var(--acc)" opacity=".12"/>
+      <path class="draw" pathLength="100" d="M0 110 L29 95 L58 102 L87 80 L116 70 L145 76 L174 58 L203 48 L232 54 L261 36 L290 26 L320 14" fill="none" stroke="var(--acc)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M0 100 L320 24" fill="none" stroke="var(--acc2)" stroke-width="2" stroke-dasharray="5 4" opacity=".85"/>
+    </svg>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <h2>About</h2>
+  <p class="sub">Analysis that ends in a recommendation, not just a chart.</p>
+  <div class="tiles">
+    <div class="tile"><small>FOCUS</small><b>Sales &amp; Supply Chain</b><span>Operations analytics</span></div>
+    <div class="tile"><small>CORE STACK</small><b>SQL · Power BI</b><span>Excel · Python · DAX</span></div>
+    <div class="tile"><small>PORTFOLIO</small><b>3 projects</b><span>1 in progress</span></div>
+    <div class="tile"><small>STATUS</small><b>Open to roles</b><span>Data Analyst</span></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="sub">The tools and methods behind the work.</p>
+  <div class="skills">
+    <div class="skill"><h3>Business intelligence</h3><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Excel</span></div>
+    <div class="skill"><h3>Querying and programming</h3><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Jupyter</span></div>
+    <div class="skill"><h3>Analysis methods</h3><span class="chip">EDA</span><span class="chip">KPI design</span><span class="chip">Data modelling</span><span class="chip">Variance analysis</span></div>
+    <div class="skill"><h3>Workflow</h3><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Documentation</span></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <p class="sub">Each project starts with a business question and ends with a recommendation.</p>
+  <div class="projects" id="project-list"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How I work</h2>
+  <p class="sub">A repeatable process from question to recommendation.</p>
+  <div class="steps">
+    <div class="step"><small>01</small><b>Ask</b><span>Define the question</span></div>
+    <div class="step"><small>02</small><b>Acquire</b><span>SQL, Excel, exports</span></div>
+    <div class="step"><small>03</small><b>Clean</b><span>Power Query, Pandas</span></div>
+    <div class="step"><small>04</small><b>Analyze</b><span>EDA, statistics</span></div>
+    <div class="step"><small>05</small><b>Visualize</b><span>Power BI, charts</span></div>
+    <div class="step"><small>06</small><b>Recommend</b><span>Insight and action</span></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <h2>Contact</h2>
+  <p class="sub">Open to Data Analyst opportunities. Let's talk.</p>
+  <a class="btn primary" href="https://www.linkedin.com/in/sonusinha-dataanalyst">LinkedIn</a>
+  <a class="btn" href="mailto:sonusinha.data@gmail.com">sonusinha.data@gmail.com</a>
+  <a class="btn" href="https://github.com/sonusinhadata">GitHub</a>
+</div></section>
+
+<footer>© <span id="yr"></span> Sonu Sinha · Built with HTML and hosted on GitHub Pages</footer>
+
+<script>
+  // ===== EDIT YOUR PROJECTS HERE =====
+  // status: "done" | "progress" | "planned".  A link shows only for done / progress.
+  const PROJECTS = [
+    { name: "Sales Performance Dashboard",
+      question: "Which regions, products and reps drive revenue?",
+      tools: ["Power BI", "DAX", "Excel"], status: "progress",
+      url: "https://github.com/sonusinhadata/sales-performance-dashboard" },
+    { name: "Supply Chain Stock-out Analysis",
+      question: "Where and why do stock-outs and delays occur?",
+      tools: ["SQL", "Python", "Pandas"], status: "planned",
+      url: "https://github.com/sonusinhadata/supply-chain-stockout-analysis" },
+    { name: "Operations OTIF Tracker",
+      question: "How often are orders delivered on time and in full?",
+      tools: ["Power Query", "Power BI"], status: "planned",
+      url: "https://github.com/sonusinhadata/operations-otif-tracker" }
+  ];
+  // ====================================
+  const LABEL = { done: "COMPLETED", progress: "IN PROGRESS", planned: "PLANNED" };
+  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  document.getElementById("project-list").innerHTML = PROJECTS.map(p => `
+    <article class="card">
+      <span class="status s-${p.status}">${LABEL[p.status]}</span>
+      <h3>${esc(p.name)}</h3>
+      <p>${esc(p.question)}</p>
+      <div class="tools">${p.tools.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+      ${p.status === "planned" ? '<span style="color:var(--muted);font-size:14px">Coming soon</span>'
+        : `<a class="go" href="${p.url}">View project &rarr;</a>`}
+    </article>`).join("");
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
